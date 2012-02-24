@@ -149,31 +149,9 @@ void combine(int *M, int *F, int *C, int n)
     }
 }
 
-/*
-
-ChromaticNumberUpperBound[g_] := 
-Module[{n, c, A, f, h},
- n = Length[VertexList@g];
- c = RandomSample[Range[n], n];
- A = Last /@ 
- Transpose /@ 
- GatherBy[First /@ Most[ArrayRules[AdjacencyMatrix[g]]], First];
- f = Function[{c, v}, 
- ReplacePart[c, 
- v -> Min[Complement[Range[c[[v]]], c[[A[[v]]]]]]]];
- h = Function[{c}, Fold[f, c, RandomSample[Range[n], n]]];
- Max[FixedPoint[h, c]]
-]
-
- */
-
 int main (int argc, char * const argv[]) {
 
-    
-    
-    //STEP 1:
-
-    cout << "STEP 1: READ IN PAIRS" <<endl;    
+    cout << "STEP 1: READING GRAPH" <<endl;    
 
     //Read file-----------------------------------------------------------------------
     //    if (argc != 4)
@@ -194,6 +172,8 @@ int main (int argc, char * const argv[]) {
     int n = H[0];//vertices
     int m = H[1];//edges*2
     
+    cout << "Done. Graph has " << n << " vertices and " << m << " edges.\n" << endl;   
+            
     vector<int> A(m, 0);
     binary_read(A.begin(), A.end(), root + "Column.bin", 0);
 
@@ -202,13 +182,6 @@ int main (int argc, char * const argv[]) {
     vector<int> D(n, 0);
     calc_displacement(N, D);
 
- 
-     //STEP 2: COMPUTE ADJACENCY DATA STRUCTURE
-     //Need to fill in
-
-    cout << "STEP 2: COMPUTE ADJACENCY DATA STRUCTURE" << endl;       
-    cout << "(skipping step 2)" << endl;
-    
     vector<int> P(n, 0);
     vector<int> C(n, 0);
     vector<int> B(n, 0);
@@ -225,7 +198,7 @@ int main (int argc, char * const argv[]) {
     RANDOM_SEED();
     
     //STEP 3: ITERATE CHROMATIC ITER TIMES
-    cout << "STEP 3: ITERATE CHROMATIC ITER TIMES" << endl;       
+    cout << "STEP 2: ITERATING" << endl;       
     int min = n;    
     int iteration = 500;
     int local_shuffle = 2;
@@ -266,19 +239,10 @@ int main (int argc, char * const argv[]) {
             for(int k = 0; k < n; k++) F[i] = B[i];            
         }
         */    
-        if(n % 100 == 0) cout << min << " " << endl;
+        if(n % 1000 == 0) cout << "current bound: " << min << " colors" << endl;
     }
     
     cout << endl << "Chromatic upper bound: " << min << endl << endl;
  
-    
-//    //STEP 4: IMPLEMENT COLOR VECTOR EVOLUTION
-//    cout << "STEP 4: IMPLEMENT COLOR VECTOR EVOLUTION" << endl;    
-//    cout << "(skipping step 4)" << endl;
-//
-//    //STEP 5: MAKE PARALLEL
-//    cout << "STEP 5: MAKE PARALLEL" << endl;        
-//    cout << "(skipping step 5)" << endl;        
-//    
     return 0;
 }
