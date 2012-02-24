@@ -1,0 +1,106 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3035,         97]
+NotebookOptionsPosition[      2745,         82]
+NotebookOutlinePosition[      3100,         98]
+CellTagsIndexPosition[      3057,         95]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "$graphPath", "=", 
+   "\"\</Users/michaelsollami/Work/Research/repository/liebmann/chromatic/\
+Benchmark Graphs/r1000.1c.col\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"$repoPath", "=", "\"\</Users/michaelsollami/Chromatic/\>\""}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.53906622430184*^9, 3.5390662789749527`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"g", "=", 
+   RowBox[{"Import", "[", "$graphpath", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"A", " ", "=", " ", 
+   RowBox[{"Last", " ", "/@", " ", 
+    RowBox[{"Transpose", " ", "/@", " ", 
+     RowBox[{"GatherBy", "[", 
+      RowBox[{
+       RowBox[{"First", " ", "/@", " ", 
+        RowBox[{"Most", "[", 
+         RowBox[{"ArrayRules", "[", 
+          RowBox[{"AdjacencyMatrix", "[", "g", "]"}], "]"}], "]"}]}], ",", 
+       " ", "First"}], "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"col", "=", 
+   RowBox[{"Flatten", "[", "A", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"cnt", "=", 
+   RowBox[{"Length", "/@", "A"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "$repoPath", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"BinaryWrite", "[", 
+   RowBox[{"\"\<Header.bin\>\"", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"VertexCount", "[", "g", "]"}], ",", 
+      RowBox[{"2", "*", 
+       RowBox[{"EdgeCount", "[", "g", "]"}]}]}], "}"}], ",", 
+    "\"\<Integer32\>\""}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Close", "[", "\"\<Header.bin\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"BinaryWrite", "[", 
+   RowBox[{"\"\<Column.bin\>\"", ",", 
+    RowBox[{"col", "-", "1"}], ",", "\"\<Integer32\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Close", "[", "\"\<Column.bin\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"BinaryWrite", "[", 
+   RowBox[{"\"\<Count.bin\>\"", ",", "cnt", ",", "\"\<Integer32\>\""}], "]"}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Close", "[", "\"\<Count.bin\>\"", "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.5390642269385147`*^9, 3.539064266285714*^9}, 
+   3.539064511987043*^9, 3.5390657983031607`*^9, {3.5390662282496977`*^9, 
+   3.539066274096362*^9}}]
+},
+WindowSize->{740, 752},
+WindowMargins->{{Automatic, 124}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
+2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 357, 9, 73, "Input"],
+Cell[917, 31, 1824, 49, 193, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
