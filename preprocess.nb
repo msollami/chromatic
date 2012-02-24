@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      3035,         97]
-NotebookOptionsPosition[      2745,         82]
-NotebookOutlinePosition[      3100,         98]
-CellTagsIndexPosition[      3057,         95]
+NotebookDataLength[      3168,         99]
+NotebookOptionsPosition[      2876,         84]
+NotebookOutlinePosition[      3231,        100]
+CellTagsIndexPosition[      3188,         97]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,17 +22,19 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
   "$graphPath", "=", 
-   "\"\</Users/michaelsollami/Work/Research/repository/liebmann/chromatic/\
-Benchmark Graphs/r1000.1c.col\>\""}], ";"}], "\n", 
+   "\"\</Users/michaelsollami/Chromatic/benchmarks/dsjc1000.5.col\>\""}], 
+  ";"}], "\n", 
  RowBox[{
   RowBox[{"$repoPath", "=", "\"\</Users/michaelsollami/Chromatic/\>\""}], 
   ";"}]}], "Input",
- CellChangeTimes->{{3.53906622430184*^9, 3.5390662789749527`*^9}}],
+ CellChangeTimes->{{3.53906622430184*^9, 3.5390662789749527`*^9}, {
+  3.539067090666771*^9, 3.539067100356052*^9}, {3.539068115230318*^9, 
+  3.539068138650889*^9}, {3.5390682378847437`*^9, 3.539068251240561*^9}}],
 
 Cell[BoxData[{
  RowBox[{
   RowBox[{"g", "=", 
-   RowBox[{"Import", "[", "$graphpath", "]"}]}], ";"}], "\n", 
+   RowBox[{"Import", "[", "$graphPath", "]"}]}], ";"}], "\n", 
  RowBox[{
   RowBox[{"A", " ", "=", " ", 
    RowBox[{"Last", " ", "/@", " ", 
@@ -78,10 +80,10 @@ Cell[BoxData[{
   RowBox[{"Close", "[", "\"\<Count.bin\>\"", "]"}], ";"}]}], "Input",
  CellChangeTimes->{{3.5390642269385147`*^9, 3.539064266285714*^9}, 
    3.539064511987043*^9, 3.5390657983031607`*^9, {3.5390662282496977`*^9, 
-   3.539066274096362*^9}}]
+   3.539066274096362*^9}, 3.539067105852351*^9}]
 },
 WindowSize->{740, 752},
-WindowMargins->{{Automatic, 124}, {Automatic, 0}},
+WindowMargins->{{116, Automatic}, {Automatic, 4}},
 FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
 2011)",
 StyleDefinitions->"Default.nb"
@@ -97,8 +99,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 357, 9, 73, "Input"],
-Cell[917, 31, 1824, 49, 193, "Input"]
+Cell[557, 20, 466, 11, 43, "Input"],
+Cell[1026, 33, 1846, 49, 193, "Input"]
 }
 ]
 *)
