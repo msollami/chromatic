@@ -1,14 +1,9 @@
 ========
-Clique
+Chromatic
 ========
 
 This is a randomized genetic algorithm for computing an upper bound on the chromatic 
 number of a graph.
-
-* DCS = "Deterministic Clique Search"
-* DHCS = "Deterministic Hyperclique Search"
-* RCS = "Randomized Clique Search"
-* RHCS = "Randomized Hyperclique Search"
 
 
 Running
